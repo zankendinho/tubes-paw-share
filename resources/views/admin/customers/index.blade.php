@@ -57,16 +57,16 @@
                                         {{ $customers->firstItem() + $index }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900">{{ $customer->nama }}</div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $customer->user ? $customer->user->nama : 'User Dihapus' }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $customer->user->username }}
+                                        {{ $customer->user ? $customer->user->username : '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $customer->email }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $customer->telp }}
+                                        {{ $customer->user ? $customer->user->telp : '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($customer->user->status == 'aktif')

@@ -13,7 +13,8 @@ class CustomerController extends Controller
     // Tampilkan daftar customer
     public function index()
     {
-        $customers = Customer::with('user')->orderBy('created_at', 'desc')->paginate(10);
+        // Hanya ambil customer yang punya user
+$customers = Customer::whereHas('user')->with('user')->paginate(10);
         return view('admin.customers.index', compact('customers'));
     }
 
